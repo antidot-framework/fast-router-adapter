@@ -42,6 +42,9 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
+        },
+        "zf": {
+            "config-provider": "Antidot\\Fast\\Router\\Container\\Config\\ConfigProvider"
         }
     },
     "config": {
