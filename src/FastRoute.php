@@ -8,14 +8,10 @@ use Antidot\Application\Http\Route;
 
 class FastRoute implements Route
 {
-    /** @var array */
-    private $method;
-    /** @var string */
-    private $name;
-    /** @var string */
-    private $path;
-    /** @var array */
-    private $pipeline;
+    private array $method;
+    private string $name;
+    private string $path;
+    private array $pipeline;
 
     public function __construct(array $method, string $name, string $path, array $pipeline)
     {

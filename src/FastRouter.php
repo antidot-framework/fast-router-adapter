@@ -22,10 +22,10 @@ use SplQueue;
 
 class FastRouter implements Router
 {
-    private $routeCollector;
-    private $middlewareFactory;
-    private $requestHandlerFactory;
-    private $dispatcher;
+    private RouteCollector $routeCollector;
+    private MiddlewareFactory $middlewareFactory;
+    private RequestHandlerFactory $requestHandlerFactory;
+    private Dispatcher\GroupCountBased $dispatcher;
 
     public function __construct(
         MiddlewareFactory $middlewareFactory,
