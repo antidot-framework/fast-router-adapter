@@ -14,12 +14,10 @@ class ConfigProvider
     public function __invoke(): array
     {
         return [
-            'dependencies' => [
-                'invokables' => [
-                    Router::class => FastRouter::class,
-                    RouteFactory::class => FastRouteFactory::class,
-                ]
-            ]
+            'services' => [
+                Router::class => FastRouter::class,
+                RouteFactory::class => FastRouteFactory::class,
+            ],
         ];
     }
 }
