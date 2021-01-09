@@ -2,9 +2,9 @@ dist: trusty
 language: php
 
 php:
-  - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 # This triggers builds to run on the new TravisCI infrastructure.
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
@@ -17,7 +17,7 @@ cache:
 
 matrix:
   include:
-    - php: 7.1
+    - php: 7.2
       env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
@@ -25,4 +25,4 @@ before_script:
 
 script:
   - vendor/bin/phpcs --standard=psr2 src/
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
