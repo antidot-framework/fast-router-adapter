@@ -3,7 +3,6 @@
 
 namespace Antidot\Fast\Router;
 
-
 use Antidot\Application\Http\Middleware\CallableMiddleware;
 use Antidot\Application\Http\Middleware\MiddlewarePipeline;
 use Antidot\Application\Http\Middleware\PipedRouteMiddleware;

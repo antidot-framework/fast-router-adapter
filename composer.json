@@ -35,9 +35,13 @@
         }
     },
     "scripts": {
+        "check-all": [
+            "@cs-check",
+            "@test"
+        ],
         "test": "phpunit",
-        "check-style": "phpcs src tests",
-        "fix-style": "phpcbf src tests"
+        "cs-check": "phpcs src tests",
+        "cs-fix": "phpcbf src tests"
     },
     "extra": {
         "branch-alias": {
