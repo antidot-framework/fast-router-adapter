@@ -1,6 +1,14 @@
 # Changelog
 
-## [0.1.1](https://github.com/antidot-framework/fast-router-adapter/tree/0.1.1)
+## [0.2.0](https://github.com/antidot-framework/fast-router-adapter/tree/0.2.0)
+
+[Full Changelog](https://github.com/antidot-framework/fast-router-adapter/compare/0.1.1...0.2.0)
+
+**Fixed bugs:**
+
+- use new middleware queue [\#2](https://github.com/antidot-framework/fast-router-adapter/pull/2) ([kpicaza](https://github.com/kpicaza))
+
+## [0.1.1](https://github.com/antidot-framework/fast-router-adapter/tree/0.1.1) (2021-01-10)
 
 [Full Changelog](https://github.com/antidot-framework/fast-router-adapter/compare/0.1.0...0.1.1)
 
