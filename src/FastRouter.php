@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Antidot\Fast\Router;
 
 use Antidot\Application\Http\Middleware\CallableMiddleware;
 use Antidot\Application\Http\Middleware\MiddlewarePipeline;
 use Antidot\Application\Http\Middleware\PipedRouteMiddleware;
+use Antidot\Application\Http\Middleware\SyncMiddlewareQueue;
 use Antidot\Application\Http\Route;
 use Antidot\Application\Http\Router;
 use Antidot\Container\MiddlewareFactory;
@@ -17,7 +19,6 @@ use FastRoute\RouteParser\Std;
 use LogicException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use SplQueue;
 
 class FastRouter implements Router
 {
@@ -48,7 +49,7 @@ class FastRouter implements Router
         switch ($routeInfo[0]) {
             case Dispatcher::NOT_FOUND:
             case Dispatcher::METHOD_NOT_ALLOWED:
-                return new PipedRouteMiddleware(new MiddlewarePipeline(new SplQueue()), true, []);
+                return new PipedRouteMiddleware(new MiddlewarePipeline(new SyncMiddlewareQueue()), true, []);
             case Dispatcher::FOUND:
                 $pipeline = $this->getPipeline($routeInfo[1]);
                 return new PipedRouteMiddleware($pipeline, false, $routeInfo[2]);
@@ -59,7 +60,7 @@ class FastRouter implements Router
 
     private function getPipeline(array $pipes): MiddlewarePipeline
     {
-        $pipeline = new MiddlewarePipeline(new SplQueue());
+        $pipeline = new MiddlewarePipeline(new SyncMiddlewareQueue());
         $middlewarePipeline = $pipes;
         $handler = array_pop($middlewarePipeline);
         foreach ($middlewarePipeline as $middleware) {
